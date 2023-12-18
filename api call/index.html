@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        .container{
+            width: 80%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            
+        }
+        .list
+        {
+            min-height: 100vw;
+            width: 20%;
+            background-color: white;
+        }
+        .product{
+            display: grid;
+            grid-template-columns: 1fr 3fr 2fr;
+            gap: 25px;
+            height: 300px;
+            border-bottom: 2px solid gray;
+        }
+        .first{
+            padding: 25px;
+            overflow: hidden;
+        }
+        .first img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .second h1{
+            font-size: 18px;
+        }
+        .second p{
+            display: inline;
+            padding: 2px;
+            background-color: green;
+            border-radius: 3px;
+            color: white;
+        }
+        .second p i{
+            font-size: small;
+        }
+        .wrap{
+            display: flex;
+            gap: 25px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="api(`https://dummyjson.com/products`)">api call</button>
+    <input type="text" id="search-bar">
+    <button onclick="search()">search</button>
+<div class="wrap">
+
+
+
+    <div class="list"></div>
+
+    <div class="container"></div>
+
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

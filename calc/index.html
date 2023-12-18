@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calc{
+            width: 400px;
+            height: 500px;
+            border: 2px solid black;
+            margin: 100px auto;
+        }
+        .dis{
+            width: 385px;
+            height: 100px;
+            position: relative;
+            top: 5px;
+            left: 5px;
+            border: 2px solid black;
+            text-align: right;
+            font-size: 40px;
+            overflow: hidden;
+        }
+        .key{
+            width: 385px;
+            height: 380px;
+            top: 10px;
+            left: 5px;
+            position: relative;
+            border: 2px solid black;
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-rows: 20%  20%  20%  20%  20%;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <div class="dis" id="dis">
+
+        </div>
+            <!-- <input type="text" class="dis" id="dis"> -->
+        <div class="key">
+            <button onclick="addtoscreen('%')">%</button>
+            <button onclick="clr()">C</button>
+            <button onclick="cls()" >Back</button>
+            <button onclick="addtoscreen('-')">-</button>
+            <button onclick="addtoscreen(7)">7</button>
+            <button onclick="addtoscreen(8)" >8</button>
+            <button onclick="addtoscreen(9)">9</button>
+            <button onclick="addtoscreen('/')">/</button>
+            <button onclick="addtoscreen(4)">4</button>
+            <button onclick="addtoscreen(5)">5</button>
+            <button onclick="addtoscreen(6)"">6</button>
+            <button onclick="addtoscreen('*')">x</button>
+            <button onclick="addtoscreen(1)" >1</button>
+            <button onclick="addtoscreen(2)">2</button>
+            <button onclick="addtoscreen(3)">3</button>
+            <button onclick="addtoscreen('+')">+</button>
+            <button></button>
+            <button onclick="addtoscreen(0)">0</button>
+            <button onclick="addtoscreen('.')">.</button>
+            <button onclick="calc()">=</button>
+        </div>
+    </div>
+</body>
+<script>
+    function addtoscreen(value){
+        document.getElementById('dis').innerHTML+=value;
+    }
+    function cls(){
+        const sc=document.getElementById('dis');
+        const cc = sc.innerHTML;
+        if(cc.length>0)
+        sc.innerHTML = cc.slice(0, -1);
+    }
+    function clr(){
+        document.getElementById('dis').innerHTML = '';
+    }
+    function calc(){
+        try{
+            const res = eval(document.getElementById('dis').innerHTML);
+            document.getElementById('dis').innerHTML= res;
+        }
+        catch(error){
+            document.getElementById('dis').innerHTML = 'Error';
+        }
+    }
+</script>
+</html>
